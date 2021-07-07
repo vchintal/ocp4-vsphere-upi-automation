@@ -44,21 +44,21 @@
 
 - hosts: localhost
   gather_facts: False
-  environment:
-    PATH: "{{ playbook_dir }}/bin:{{ ansible_env.PATH }}"
-    GOVC_USERNAME: "{{ vcenter.admin_username }}"
-    GOVC_PASSWORD: "{{ vcenter.admin_password }}"
-    GOVC_URL: "https://{{ vcenter.ip }}"
-    GOVC_DATACENTER: "{{ datacenter }}"
-    GOVC_INSECURE: 1
+  # environment:
+  #   PATH: "{{ playbook_dir }}/bin:{{ ansible_env.PATH }}"
+  #   GOVC_USERNAME: "{{ vcenter.admin_username }}"
+  #   GOVC_PASSWORD: "{{ vcenter.admin_password }}"
+  #   GOVC_URL: "https://{{ vcenter.ip }}"
+  #   GOVC_DATACENTER: "{{ datacenter }}"
+  #   GOVC_INSECURE: 1
   tasks:
-    - name: Run the vmware role to setup vCenter folder
-      import_role:
-        name: vmware
+    # - name: Run the vmware role to setup vCenter folder
+    #   import_role:
+    #     name: vmware
     - name: Run steps specific to DHCP and the use of an OVA file
       import_role:
         name: static_ips_ova
 
-    - name: Run steps to finish cluster install
-      import_role:
-        name: finish_install
+    # - name: Run steps to finish cluster install
+    #   import_role:
+    #     name: finish_install

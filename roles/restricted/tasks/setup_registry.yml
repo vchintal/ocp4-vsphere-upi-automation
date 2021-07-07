@@ -40,7 +40,7 @@
       become: true
 
     - name: Open up the required ports thru firewall
-      firewalld:
+      ansible.posix.firewalld:
         port: "{{ item.port }}/tcp"
         zone: "{{ item.zone }}"
         state: enabled

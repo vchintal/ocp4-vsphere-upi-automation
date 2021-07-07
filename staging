@@ -6,6 +6,8 @@ all:
     webservers:
       hosts:
         localhost:
+            ansible_connection: local
     registries:
       hosts:
         localhost:
+            ansible_connection: local
